@@ -1,5 +1,5 @@
 const express=require('express')
-const users=require('./users')
+const usersRouter=require('./users/router')
 
 const app=express()
 const PORT=9000
@@ -13,7 +13,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.post('/register',users.register)
+app.post('/register',usersRouter.register)
 
 app.listen(PORT, () => {
   console.log(`App listening on Port:${PORT} \nAccess at http://localhost:${PORT}`)

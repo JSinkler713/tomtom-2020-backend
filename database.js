@@ -7,7 +7,7 @@ let createDonationsTableQuery='CREATE TABLE IF NOT EXISTS donations (users_id IN
 
 let createFoodTypesTableQuery='CREATE TABLE IF NOT EXISTS food_types (food_type Text)'
 
-let createDonationsFoodTypesTableQuery='CREATE IF NOT EXISTS donations_foodtTypes (donations_id INTEGER, food_types_id INTEGER)'
+let createDonationsFoodTypesTableQuery='CREATE TABLE IF NOT EXISTS donations_foodtTypes (donations_id INTEGER, food_types_id INTEGER)'
 //---Create---
 database.run(createUsersTableQuery, error => {
   if (error) console.error(new Error("Create users table failed."), error);

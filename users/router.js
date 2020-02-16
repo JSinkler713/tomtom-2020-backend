@@ -10,7 +10,7 @@ function register(request,response){
       })
     }
     if (foundEmail) {
-      let foundError = { status: 400, error:  }
+      let foundError = { status: 400, error: "" }
       if (foundEmail.email === newEmail) {
         foundError.error="Email is already registered."
       }
