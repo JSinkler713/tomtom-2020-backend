@@ -1,7 +1,7 @@
 const sqilte3 = require('sqlite3')
 const database = new sqilte3.Database('./database.db')
 //---Queries---
-let createUsersTableQuery='CREATE TABLE IF NOT EXISTS users (email TEXT UNIQUE, password TEXT, name TEXT, company_name TEXT, street TEXT, city TEXT, state TEXT, zip_code TEXT, phone_number TEXT, type TEXT)'
+let createUsersTableQuery='CREATE TABLE IF NOT EXISTS users (email TEXT UNIQUE, password TEXT, name TEXT, company_name TEXT, street_address TEXT, city TEXT, state TEXT, zip_code TEXT, phone_number TEXT, type TEXT)'
 
 let createDonationsTableQuery='CREATE TABLE IF NOT EXISTS donations (users_id INTEGER, pickup_time TEXT DEFAULT NULL, feeds_quantity INTEGER, fits_car INTEGER, additional_info TEXT, processing TEXT DEFAULT available)'
 

@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS donations;
 DROP TABLE IF EXISTS food_types;
 DROP TABLE IF EXISTS donations_foodtTypes;
 
-CREATE TABLE IF NOT EXISTS users (email TEXT UNIQUE, password TEXT, name TEXT, company_name TEXT, street TEXT, city TEXT, state TEXT, zip_code TEXT, phone_number TEXT, type TEXT);
+CREATE TABLE IF NOT EXISTS users (email TEXT UNIQUE, password TEXT, name TEXT, company_name TEXT, street_address TEXT, city TEXT, state TEXT, zip_code TEXT, phone_number TEXT, type TEXT);
 CREATE TABLE IF NOT EXISTS donations (users_id INTEGER, pickup_time TEXT DEFAULT NULL, feeds_quantity INTEGER, fits_car INTEGER, additional_info TEXT, processing TEXT DEFAULT available);
 CREATE TABLE IF NOT EXISTS food_types (type TEXT);
 CREATE TABLE IF NOT EXISTS donations_foodtTypes (donations_id INTEGER, food_types_id INTEGER);

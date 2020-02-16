@@ -16,7 +16,7 @@ function register(request, response){
       }
       return response.status(400).json(foundError)
     }
-    let newUser = [request.body.email, request.body.password, request.body.name, request.body.company_name, request.body.street, request.body.city, request.body.state, request.body.zip_code, request.body.phone_number, request.body.type]
+    let newUser = [request.body.email, request.body.password, request.body.name, request.body.company_name, request.body.street_address, request.body.city, request.body.state, request.body.zip_code, request.body.phone_number, request.body.type]
     model.createUser(newUser,error=>{
       if (error) {
         return response.status(500).json({
