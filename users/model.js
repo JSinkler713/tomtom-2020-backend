@@ -21,5 +21,5 @@ function getEmailAndPassword(info,callback){
 }
 
 module.exports={
-  getOneEmail, createUser getEmailAndPassword
+  getOneEmail, createUser, getEmailAndPassword
 }
