@@ -22,7 +22,7 @@ function getFoodTypeOid(type,callback){
   SELECT food_types.oid 
   FROM food_types
   WHERE food_type=?`
-  database.get(getfoodTypeOidQuery, type, callback)
+  database.get(getFoodTypeOidQuery, type, callback)
 }
 function getFoodTypes(id,callback){
   let getFoodTypesQuery=`
