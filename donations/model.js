@@ -1,4 +1,4 @@
-const database=('../database.js')
+const database=require('../database.js')
 
 function createDonation(info, callback){
   let createDonationQuery=`
@@ -12,22 +12,32 @@ function createFoodTypeRelation(info, callback) {
 }
 function getOneUserDonations(id,callback){
   let getOneUserDonationsQuery=`
-  SELECT users_id AS "user_id", rowid AS "donation_id", pickup_time, feeds_quantity, fits_car, additional_info, processing
-  FROM users
+  SELECT users_id AS "user_id", donations.oid AS "donation_id", pickup_time, feeds_quantity, fits_car, additional_info, processing
+  FROM donations
   WHERE users_id=?`
-  database.get(getOneUserDonationsQuery,id,callback)
+  database.get(getOneUserDonationsQuery, id, callback)
 }
-function getfoodTypeOid(type,callback){
-  let getfoodTypeOidQuery=`
-  SELECT food_types.oid from food_types
+function getFoodTypeOid(type,callback){
+  let getFoodTypeOidQuery=`
+  SELECT food_types.oid 
+  FROM food_types
   WHERE food_type=?`
   database.get(getfoodTypeOidQuery, type, callback)
+}
+function getFoodTypes(id,callback){
+  let getFoodTypesQuery=`
+  SELECT food_type 
+  FROM food_types
+  JOIN donations_foodTypes ON food_types_id=food_types.oid
+  WHERE donations_id=?`
+  database.all(getFoodTypesQuery, id, callback)
 }
 
 
 module.exports={
   createDonation,
   createFoodTypeRelation,
-  getfoodTypeOid,
-  getOneUserDonations
+  getFoodTypeOid,
+  getOneUserDonations,
+  getFoodTypes
 }

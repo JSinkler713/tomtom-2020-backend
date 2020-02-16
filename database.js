@@ -5,7 +5,7 @@ let createUsersTableQuery='CREATE TABLE IF NOT EXISTS users (email TEXT UNIQUE, 
 
 let createDonationsTableQuery='CREATE TABLE IF NOT EXISTS donations (users_id INTEGER, pickup_time TEXT, feeds_quantity INTEGER, fits_car INTEGER, additional_info TEXT, processing TEXT DEFAULT available)'
 
-let createFoodTypesTableQuery='CREATE TABLE IF NOT EXISTS food_types (food_type Text)'
+let createFoodTypesTableQuery='CREATE TABLE IF NOT EXISTS food_types (food_type TEXT)'
 
 let createDonationsFoodTypesTableQuery='CREATE TABLE IF NOT EXISTS donations_foodTypes (donations_id INTEGER, food_types_id INTEGER)'
 //---Create---
