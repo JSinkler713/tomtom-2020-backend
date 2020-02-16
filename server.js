@@ -19,6 +19,7 @@ app.post('/login', usersRouter.login)
 
 //---Donations Routes---
 app.post('/donations/user/:id',donationsRouter.createDonation)
+app.get('/donations/user/:id', donationsRouter.getAllUserDonations)
 
 app.listen(PORT, () => {
   console.log(`App listening on Port:${PORT} \nAccess at http://localhost:${PORT}`)
