@@ -14,6 +14,7 @@ app.use(function (req, res, next) {
 });
 
 app.post('/register',usersRouter.register)
+app.post('/login', usersRouter.login)
 
 app.listen(PORT, () => {
   console.log(`App listening on Port:${PORT} \nAccess at http://localhost:${PORT}`)

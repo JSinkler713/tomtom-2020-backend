@@ -15,7 +15,7 @@ function createUser(info,callback){
 
 function getEmailAndPassword(info,callback){
   let getOneEmailAndPasswordQuery = `
-  SELECT email, name, company_name, street_address, city, state, zip_code, phone_number from users
+  SELECT email, name, company_name, street, city, state, zip_code, phone_number from users
   WHERE email=? AND password=?`
   database.get(getOneEmailAndPasswordQuery, info, callback)
 }
