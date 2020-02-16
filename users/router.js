@@ -35,7 +35,6 @@ function login(request,response){
   console.log(loginRequest)
   model.getEmailAndPassword(loginRequest,(error,foundUser)=>{
     if (error) {
-      console.log(error)
       return response.status(500).json({
         status: 500, message: 'Something went wrong. Please try again.'
       })
@@ -47,13 +46,28 @@ function login(request,response){
       })
     }
     return response.status(200).json({
-      status:500, message:'Successfully Login!',
+      status:200, message:'Successfully Login!',
       data: foundUser,
+    })
+  })
+}
+
+function getUserAddresses(request,response){
+  model.getUserAddresses((error,data)=>{
+    if (error) {
+      return response.status(500).json({
+        status: 500, message: 'Something went wrong. Please try again.'
+      })
+    }
+    return response.status(200).json({
+      status: 200, message: 'Success!',
+      data: data,
     })
   })
 }
 
 module.exports={
   register, 
-  login
+  login,
+  getUserAddresses
 }

@@ -16,6 +16,7 @@ app.use(function (req, res, next) {
 //---User Routes---
 app.post('/register',usersRouter.register)
 app.post('/login', usersRouter.login)
+app.get('/users', usersRouter.getUserAddresses)
 
 //---Donations Routes---
 app.post('/donations/user/:id',donationsRouter.createDonation)

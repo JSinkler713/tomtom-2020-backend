@@ -19,7 +19,13 @@ function getEmailAndPassword(info,callback){
   WHERE email=? AND password=?`
   database.get(getOneEmailAndPasswordQuery, info, callback)
 }
+function getUserAddresses(callback){
+  let getUserAddressesQuery=`
+  SELECT users.oid AS 'id', *
+  FROM users`
+  database.all(getUserAddressesQuery,callback)
+}
 
 module.exports={
-  getOneEmail, createUser, getEmailAndPassword
+  getOneEmail, createUser, getEmailAndPassword, getUserAddresses
 }

@@ -49,15 +49,15 @@ function getOneUserDonations(request,response){
         message: 'Donation does not exist'
       })
     }
-    model.getFoodTypes(data.donations_id,(error,typeData)=>{
+    model.getFoodTypes(data.donation_id,(error,typeData)=>{
       if (error) {
-        console.log(error)
         return response.status(500).json({
           status: 500,
           message: 'Something went wrong. Please try again.'
         })
       }
-      data.food_types=typeData
+      console.log(data.donation_id)
+      data.food_types=typeData.map(type=>type.food_type)
       return response.status(200).json({
         status: 200,
         message: "Success",

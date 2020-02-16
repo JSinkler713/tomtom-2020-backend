@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS donations;
 DROP TABLE IF EXISTS food_types;
-DROP TABLE IF EXISTS donations_foodtTypes;
+DROP TABLE IF EXISTS donations_foodTypes;
 
 CREATE TABLE IF NOT EXISTS users (email TEXT UNIQUE, password TEXT, name TEXT, company_name TEXT, street_address TEXT, city TEXT, state TEXT, zip_code TEXT, phone_number TEXT, type TEXT);
 CREATE TABLE IF NOT EXISTS donations (users_id INTEGER, pickup_time TEXT, feeds_quantity INTEGER, fits_car INTEGER, additional_info TEXT, processing TEXT DEFAULT available);
@@ -17,4 +17,4 @@ INSERT INTO food_types VALUES ("Other");
 INSERT INTO donations VALUES (1,"01:30 AM", 8, 1, "Perishable. Do not turn over", "available");
 INSERT INTO donations_foodTypes VALUES (1,1);
 INSERT INTO donations_foodTypes VALUES (1,3);
-INSERT INTO donations_foodTypes VALUES (1,4)
+INSERT INTO donations_foodTypes VALUES (1,4);

@@ -15,7 +15,7 @@ function getOneUserDonations(id,callback){
   SELECT users_id AS "user_id", donations.oid AS "donation_id", pickup_time, feeds_quantity, fits_car, additional_info, processing
   FROM donations
   WHERE users_id=?`
-  database.get(getOneUserDonationsQuery, id, callback)
+  database.all(getOneUserDonationsQuery, id, callback)
 }
 function getFoodTypeOid(type,callback){
   let getFoodTypeOidQuery=`
@@ -28,7 +28,7 @@ function getFoodTypes(id,callback){
   let getFoodTypesQuery=`
   SELECT food_type 
   FROM food_types
-  JOIN donations_foodTypes ON food_types_id=food_types.oid
+  LEFT JOIN donations_foodTypes ON food_types_id=food_types.oid
   WHERE donations_id=?`
   database.all(getFoodTypesQuery, id, callback)
 }
